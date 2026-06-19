@@ -1,0 +1,13 @@
+{
+  "name": "adaptador-treino",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PWA que adapta sua serie de treino a academia do predio, com fotos, carga/reps, cronometro e modo offline.",
+  "scripts": {
+    "dev": "netlify dev",
+    "deploy": "netlify deploy --prod"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Adaptador de Treino — Academia do Prédio",
+  "short_name": "Treino",
+  "description": "Anexe a foto da sua série e gere um card adaptado, com fotos, carga/reps e cronômetro.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f3f1",
+  "theme_color": "#1f2937",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
