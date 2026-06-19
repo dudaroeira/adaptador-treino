@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Adaptador de Treino — Academia do Prédio</title>
+<title>Academia Monumental — Seu treino sob medida</title>
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#1f2937">
+<meta name="theme-color" content="#15161a">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Treino">
+<meta name="apple-mobile-web-app-title" content="Monumental">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="icon" href="icon-192.png">
 <style>
-:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#c2693f;--accent-soft:#faf6f3;--accent-bd:#ead8cd;--bg:#f5f3f1;--done:#e8f3ec;--done-bd:#9cc8ad;}
+:root{--ink:#15161a;--muted:#6b6f76;--line:#e7e3d8;--accent:#bf9b46;--accent-soft:#faf6ea;--accent-bd:#e6d6ad;--bg:#f6f3ec;--done:#eef2e6;--done-bd:#c2b27a;--gold:#bf9b46;--gold-soft:#d8c489;}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;margin:0;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.4;padding-bottom:46px;}
 .wrap{max-width:680px;margin:0 auto;padding:0 12px;}
-header.top{background:var(--ink);color:#fff;padding:16px 14px;}
+header.top{background:var(--ink);color:#fff;padding:18px 14px;border-bottom:2px solid var(--gold);}
 header.top .inner{max-width:680px;margin:0 auto;}
-header.top h1{margin:0;font-size:20px;letter-spacing:-.3px;}
-header.top .sub{color:#cbd5e1;font-size:12.5px;margin-top:3px;}
+header.top h1{margin:0;font-size:22px;letter-spacing:.5px;font-family:Georgia,'Times New Roman',serif;font-weight:700;}header.top h1 .gold{color:var(--gold-soft);}
+header.top .sub{color:#cbb98a;font-size:12.5px;margin-top:4px;letter-spacing:.2px;}
 .panel{background:#fff;border:1px solid var(--line);border-radius:14px;margin:13px 0;box-shadow:0 1px 3px rgba(0,0,0,.04);overflow:hidden;}
 .panel-head{padding:11px 14px;font-weight:700;font-size:14px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
 .panel-head .chev{color:var(--muted);font-size:13px;}
@@ -31,7 +31,7 @@ textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px;
 .drop b{color:var(--accent);}
 .preview{display:none;border:1px solid var(--line);border-radius:10px;max-width:100%;}
 .btn{border:none;border-radius:11px;padding:13px 16px;font-size:15px;font-weight:800;cursor:pointer;}
-.btn.primary{background:var(--accent);color:#fff;} .btn.primary:disabled{opacity:.45;cursor:default;}
+.btn.primary{background:var(--accent);color:#15161a;} .btn.primary:disabled{opacity:.45;cursor:default;}
 .btn.ghost{background:#fff;border:1px solid var(--line);color:var(--ink);font-weight:700;font-size:13.5px;padding:10px 14px;}
 .btn:active{transform:scale(.98);}
 .status{font-size:13px;color:var(--muted);text-align:center;margin:10px 0;min-height:18px;}
@@ -91,8 +91,8 @@ textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px;
 </head>
 <body>
 <header class="top"><div class="inner">
-  <h1>Adaptador de Treino</h1>
-  <div class="sub">Academia do prédio · 120 exercícios com foto, offline · anexe a série e gere o card adaptado</div>
+  <h1>Academia <span class="gold">Monumental</span></h1>
+  <div class="sub">Seu treino, adaptado à nossa estrutura · com fotos, cronômetro e modo offline</div>
 </div></header>
 
 <div class="bar" id="bar"><div class="inner">
@@ -110,29 +110,29 @@ textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px;
 <div class="wrap">
   <div id="setup">
     <div class="panel">
-      <div class="panel-head" onclick="togglePanel(this)">Equipamentos da academia <span class="chev">tocar para editar ▾</span></div>
+      <div class="panel-head" onclick="togglePanel(this)">Nossos equipamentos <span class="chev">tocar para editar ▾</span></div>
       <div class="panel-body collapsed">
-        <p style="font-size:12px;color:var(--muted);margin:4px 0 8px;">O app já usa só os 120 exercícios realizáveis aqui. Edite se algo mudar.</p>
+        <p style="font-size:12px;color:var(--muted);margin:4px 0 8px;">Já usamos só os exercícios que dá pra fazer aqui na Monumental. Edite se algo mudar.</p>
         <textarea id="equip">Barra olimpica e anilhas; halteres (leves a pesados); kettlebell; Smith machine (Life Fitness); bancos reto e ajustavel; multiestacao Life Fitness FIT3 (supino, supino inclinado, desenvolvimento, pulldown, remada baixa, rosca, triceps, cadeira extensora e mesa flexora); polia alta com corda, barra reta, barra V e barra de pulldown; bola suica; faixas elasticas. O app ja contem APENAS exercicios realizaveis nesta academia.</textarea>
       </div>
     </div>
     <div class="panel">
-      <div class="panel-head" style="cursor:default;">Sua série</div>
+      <div class="panel-head" style="cursor:default;">Seu treino de hoje</div>
       <div class="panel-body">
         <div class="up">
           <div class="drop" id="drop">
-            <b>Toque para anexar a foto</b> da sua série<br>
-            <span style="font-size:12px;">(print do seu app de treino)</span>
+            <b>Toque para enviar a foto</b> do seu treino<br>
+            <span style="font-size:12px;">pode ser o print do seu app de treino</span>
             <input id="file" type="file" accept="image/*" style="display:none;">
           </div>
           <img id="preview" class="preview" alt="">
-          <button id="go" class="btn primary" disabled onclick="adapt()">Adaptar para a academia do prédio</button>
+          <button id="go" class="btn primary" disabled onclick="adapt()">Adaptar para a Academia Monumental</button>
         </div>
         <div class="status" id="status"></div>
         <div id="errbox"></div>
       </div>
     </div>
-    <p class="note scr">As 120 fotos estão embutidas no app (domínio público, free-exercise-db) e funcionam offline. Não gostou de algum exercício? Toque em “Trocar” para ver outras opções do mesmo grupo. A adaptação de uma série nova usa internet; confira a execução com seu professor.</p>
+    <p class="note scr">Todos os exercícios já vêm com foto e funcionam sem internet. Não curtiu algum? Toque em “Trocar” para ver outras opções do mesmo grupo. Para adaptar um treino novo é preciso conexão; confira a execução com seu professor.</p>
   </div>
 
   <div id="result"></div>
@@ -196,7 +196,7 @@ async function adapt(){
     txt=txt.replace(/```json/g,'').replace(/```/g,'').trim();
     renderCard(JSON.parse(txt)); setStatus('');
   }catch(err){
-    setStatus(''); showErr("Não consegui adaptar agora ("+err.message+"). Tente novamente, ou confira se a foto está nítida.");
+    setStatus(''); showErr("Não rolou adaptar agora. Tente de novo e confira se a foto está nítida.");
     document.getElementById('go').disabled=false;
   }
 }
