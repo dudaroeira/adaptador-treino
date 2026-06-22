@@ -174,7 +174,7 @@ async function adapt(){
   if(!uploaded){return;}
   const _freeOnly=!!(document.getElementById('freeonly')&&document.getElementById('freeonly').checked);
   const _FREE=['dumbbell','barbell','body only'];
-  const _catalogText=catalogText.split('\n').filter(function(l){return _FREE.indexOf(l.split('|')[2])>=0;}).join('\n');
+  const _catalogText=_freeOnly?catalogText.split('\n').filter(function(l){return _FREE.indexOf(l.split('|')[2])>=0;}).join('\n'):catalogText;
   const _freeClause=_freeOnly?"MODO PESO LIVRE: use SOMENTE pesos livres (halteres, barra, peso do corpo); NAO use maquinas nem polias; troque maquina/polia pela versao equivalente em peso livre. ":"";
   document.getElementById('errbox').innerHTML='';
   document.getElementById('go').disabled=true;
