@@ -34,6 +34,9 @@ textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px;
 .btn.primary{background:var(--accent);color:#15161a;} .btn.primary:disabled{opacity:.45;cursor:default;}
 .btn.ghost{background:#fff;border:1px solid var(--line);color:var(--ink);font-weight:700;font-size:13.5px;padding:10px 14px;}
 .btn:active{transform:scale(.98);}
+.freewt{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--ink);font-weight:600;cursor:pointer;margin:2px 0;}
+.freewt input{width:17px;height:17px;accent-color:var(--accent);}
+.freewt span{color:var(--muted);font-weight:400;font-size:12px;}
 .status{font-size:13px;color:var(--muted);text-align:center;margin:10px 0;min-height:18px;}
 .spinner{width:22px;height:22px;border:3px solid var(--accent-bd);border-top-color:var(--accent);border-radius:50%;display:inline-block;vertical-align:-5px;margin-right:7px;animation:sp 1s linear infinite;}
 @keyframes sp{to{transform:rotate(360deg);}}
@@ -126,6 +129,7 @@ textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px;
             <input id="file" type="file" accept="image/*" style="display:none;">
           </div>
           <img id="preview" class="preview" alt="">
+          <label class="freewt"><input type="checkbox" id="freeonly"> Somente pesos livres <span>(sem máquinas/polias)</span></label>
           <button id="go" class="btn primary" disabled onclick="adapt()">Adaptar para a Academia Monumental</button>
         </div>
         <div class="status" id="status"></div>
@@ -168,6 +172,10 @@ function showErr(msg){document.getElementById('errbox').innerHTML='<div class="e
 
 async function adapt(){
   if(!uploaded){return;}
+  const _freeOnly=!!(document.getElementById('freeonly')&&document.getElementById('freeonly').checked);
+  const _FREE=['dumbbell','barbell','body only'];
+  const _catalogText=catalogText.split('\n').filter(function(l){return _FREE.indexOf(l.split('|')[2])>=0;}).join('\n');
+  const _freeClause=_freeOnly?"MODO PESO LIVRE: use SOMENTE pesos livres (halteres, barra, peso do corpo); NAO use maquinas nem polias; troque maquina/polia pela versao equivalente em peso livre. ":"";
   document.getElementById('errbox').innerHTML='';
   document.getElementById('go').disabled=true;
   setStatus('<span class="spinner"></span>Lendo e adaptando sua série…');
@@ -183,7 +191,7 @@ async function adapt(){
 "Preserve bi-set e número de séries. Na dúvida, mantenha o original e minimize ao máximo as trocas. "+
 "IMPORTANTE: use SOMENTE exercícios do CATÁLOGO — são os ÚNICOS realizáveis nesta academia. Devolva em 'img' o id EXATO do catálogo. "+
 "EQUIPAMENTOS:\n"+equip+"\n\n"+
-"CATÁLOGO (id|nome|equipamento|músculo — use apenas estes ids):\n"+catalogText+"\n\n"+
+"CATÁLOGO (id|nome|equipamento|músculo — use apenas estes ids):\n"+_catalogText+"\n\n"+_freeClause+
 "Responda APENAS com JSON válido (sem markdown), schema: "+
 '{\"title\":\"Treino X — Grupo\",\"blocks\":[{\"group\":\"grupo\",\"biset\":true,\"series\":3,\"moves\":[{\"name\":\"nome PT\",\"img\":\"id_catalogo\",\"cue\":\"dica curta (max 12 palavras)\",\"changed\":true,\"orig\":\"nome original se mudou\"}]}]}. '+
 "'biset':true só quando o original indicar bi-set. Cues curtas. Nada além do JSON.";
